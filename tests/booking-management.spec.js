@@ -138,9 +138,10 @@ test.describe('Booking Management — Critical Happy Paths', () => {
     // Title appears twice: h1 + "Event" field
     await expect(page.getByText(event.title, { exact: true })).toHaveCount(2);
     await expect(page.getByText(event.category, { exact: true })).toBeVisible();
-    const eventDate = new Date(event.eventDate).toLocaleDateString('en-IN', {
+    // Format in the browser so ICU data/timezone match the page (Node's ICU varies by version)
+    const eventDate = await page.evaluate((d) => new Date(d).toLocaleDateString('en-IN', {
       weekday: 'long', day: 'numeric', month: 'long', year: 'numeric',
-    });
+    }), event.eventDate);
     await expect(page.getByText(eventDate, { exact: true })).toBeVisible();
     await expect(page.getByText(event.venue, { exact: true })).toBeVisible();
     await expect(page.getByText(event.city, { exact: true })).toBeVisible();
