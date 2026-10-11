@@ -29,3 +29,4 @@ Thumbs.db
 # Playwright test artifacts
 playwright-report/
 test-results/
+.claude/worktrees/

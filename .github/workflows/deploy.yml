@@ -33,9 +33,9 @@
 name: Deploy – Production
 
 on:
-  # Auto-deploy when code is merged (pushed) to main
-  push:
-    branches: [main]
+  # Auto-deploy on push disabled in this fork — only Playwright runs automatically.
+  # push:
+  #   branches: [main]
 
   # Allow on-demand deploys from the GitHub Actions UI
   workflow_dispatch:

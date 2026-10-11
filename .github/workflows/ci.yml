@@ -21,10 +21,10 @@
 name: CI – Pull Request Checks
 
 on:
-  # Run on every PR that targets main (opened, new commits pushed, reopened)
-  pull_request:
-    branches: [main]
-    types: [opened, synchronize, reopened]
+  # PR trigger disabled in this fork — only Playwright runs automatically.
+  # pull_request:
+  #   branches: [main]
+  #   types: [opened, synchronize, reopened]
 
   # Allow developers to trigger a run manually from the GitHub UI
   workflow_dispatch:
